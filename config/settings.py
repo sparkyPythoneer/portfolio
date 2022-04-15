@@ -21,6 +21,8 @@ SECRET_KEY = config('SECRET_KEY', default=get_random_secret_key, cast=str)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='.herokuapp.com', cast=Csv())
 
 # Application definition
@@ -126,11 +128,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# WHITENOISE_MANIFEST_STRICT = False
+
 WHITENOISE_AUTOREFRESH = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='sample@email.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='password#22')
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 django_heroku.settings(locals())
