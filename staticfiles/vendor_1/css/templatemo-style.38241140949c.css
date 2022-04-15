@@ -6,7 +6,7 @@ https://templatemo.com/tm-531-reflux
 
 */
 
-@import url(fontawesome.css);
+@import url("fontawesome.487f5690e791.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 #page-wraper {
-    background: url(../images/bg-img.jpg) no-repeat center center fixed;
+    background: url("../images/bg-img.79f8744bf753.jpg") no-repeat center center fixed;
     /* background: rgba(0, 0, 0, 0.1); */
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -437,35 +437,35 @@ button:hover {
 }
 
 .service-item .first-service-icon {
-    background-image: url(../images/html_black.png);
+    background-image: url("../images/html_black.436ae02ee442.png");
 }
 
 .service-item:hover .first-service-icon {
-    background-image: url(../images/html_white.png);
+    background-image: url("../images/html_white.2c469b704dc7.png");
 }
 
 .service-item .second-service-icon {
-    background-image: url(../images/js_black.png);
+    background-image: url("../images/js_black.cde7b50721a4.png");
 }
 
 .service-item:hover .second-service-icon {
-    background-image: url(../images/js_white.png);
+    background-image: url("../images/js_white.0b3099cbab96.png");
 }
 
 .service-item .third-service-icon {
-    background-image: url(../images/server_black.png);
+    background-image: url("../images/server_black.207f340c0291.png");
 }
 
 .service-item:hover .third-service-icon {
-    background-image: url(../images/server_white.png);
+    background-image: url("../images/server_white.aecf9fd2ebc5.png");
 }
 
 .service-item .fourth-service-icon {
-    background-image: url(../images/sql_black.png);
+    background-image: url("../images/sql_black.7083f816ddd4.png");
 }
 
 .service-item:hover .fourth-service-icon {
-    background-image: url(../images/sql_white.png);
+    background-image: url("../images/sql_white.78fcd661b889.png");
 }
 
 

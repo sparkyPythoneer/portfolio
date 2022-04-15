@@ -14,7 +14,7 @@ body {
 }
 
 #page-wraper {
-    background: url(../images/bg_main.jpg) no-repeat center center fixed;
+    background: url(../images/bg-img.jpg) no-repeat center center fixed;
     /* background: rgba(0, 0, 0, 0.1); */
     -webkit-background-size: cover;
     -moz-background-size: cover;
