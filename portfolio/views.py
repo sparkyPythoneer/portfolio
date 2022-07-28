@@ -36,5 +36,7 @@ class ContactFormView(View):
                 fail_silently=False,
             )
             return HttpResponseRedirect(reverse('home'))
-        except Exception as err:
-            print(str(err))
+        except Exception as error:
+            print(str(f"\n\n{error}\n\n"))
+            
+            return HttpResponseRedirect(reverse('home'))
