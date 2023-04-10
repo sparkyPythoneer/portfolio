@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": config("DB_NAME"),
-        "USER": config("DB_USER"),
-        "PASSWORD": config("DB_PASS"),
-        "HOST": config("DB_HOST"),
-        "PORT": config("DB_PORT")
+        "NAME": config("DB_NAME", default='github_actions', cast=str),
+        "USER": config("DB_USER", default='postgres', cast=str),
+        "PASSWORD": config("DB_PASS", default='postgres', cast=str),
+        "HOST": config("DB_HOST", default='localhost', cast=str),
+        "PORT": config("DB_PORT", default=5432, cast=int)
     }
 }
 
