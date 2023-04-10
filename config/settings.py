@@ -23,7 +23,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='augustinejibunoh.dev', cast=Csv())
 
 # ENVIRONMENT = config('ENVIRONMENT', default='local', cast=str)
 
