@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-import django_heroku
+# import django_heroku
 from decouple import config, Csv
 from dj_database_url import parse as db_url
 
@@ -23,9 +23,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='.herokuapp.com', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='augustinejibunoh.dev', cast=Csv())
 
-ENVIRONMENT = config('ENVIRONMENT', default='local', cast=str)
+# ENVIRONMENT = config('ENVIRONMENT', default='local', cast=str)
 
 # Application definition
 
@@ -139,26 +139,29 @@ WHITENOISE_AUTOREFRESH = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CSRF_COOKIE_SECURE = True
+
 # Email settings
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='sample@email.com')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='password#22')
-EMAIL_PORT = 465
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='sample@email.com')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='password#22')
+# EMAIL_PORT = 465
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = True
 
-if ENVIRONMENT == 'production':
-    CORS_REPLACE_HTTPS_REFERER = True
-    HOST_SCHEME = "https://"
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_SECONDS = 1000000
-    SECURE_FRAME_DENY = True
-else:
-    pass
+# Heroku config param(s).
+# if ENVIRONMENT == 'production':
+#     CORS_REPLACE_HTTPS_REFERER = True
+#     HOST_SCHEME = "https://"
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#     SECURE_SSL_REDIRECT = True
+#     SESSION_COOKIE_SECURE = True
+#     CSRF_COOKIE_SECURE = True
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     SECURE_HSTS_SECONDS = 1000000
+#     SECURE_FRAME_DENY = True
+# else:
+#     pass
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

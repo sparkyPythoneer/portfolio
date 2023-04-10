@@ -1,9 +1,8 @@
-from decouple import Csv, config
-
-from django.core.mail import send_mail
 from django.http.response import HttpResponseRedirect
 from django.urls.base import reverse
 from django.views.generic import TemplateView, View
+
+from portfolio.models import ContactForm
 
 
 # Create your view(s) here.
@@ -12,31 +11,15 @@ class HomePageView(TemplateView):
 
 
 class ContactFormView(View):
-    http_method_names = ['post']
-
+    
     def post(self, request):
-        if request.method == 'POST':
-            first_name = request.POST.get('first-name')
-            last_name = request.POST.get('last-name')
-            email = request.POST.get('email')
-            email_subject = request.POST.get('subject')
-            message = request.POST.get('message')
-            from_email = config('EMAIL_HOST_USER', default='example@gmail.com')
-            recipient_list = config(
-                'SELF', default='example@gmail.com', cast=Csv())
-
-            message_body = f'{first_name} {last_name}: {email}\n\n{message}'
-
-        try:
-            send_mail(
-                email_subject,
-                message_body,
-                from_email,
-                recipient_list,
-                fail_silently=False,
-            )
-            return HttpResponseRedirect(reverse('home'))
-        except Exception as error:
-            print(str(f"\n\n{error}\n\n"))
-            
-            return HttpResponseRedirect(reverse('home'))
+        form_content = request.POST
+        data = {
+            "first_name": form_content.get("first-name"),
+            "last_name": form_content.get("last-name"),
+            "email": form_content.get("email"),
+            "subject": form_content.get("subject"),
+            "message": form_content.get("message")
+        }
+        ContactForm.objects.create(**data)
+        return HttpResponseRedirect(reverse('home'))
